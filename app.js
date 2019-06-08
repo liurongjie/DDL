@@ -1,7 +1,20 @@
 //app.js
 App({
   onLaunch: function() {
+    
+    var nowdate = this.getnowdate();
+    this.globalData.nowdate=nowdate;
     this.order();
+    
+  },
+
+  getnowdate:function(){
+    var myDate = new Date();
+    var year = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+    var month = myDate.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+    var date = myDate.getDate(); //获取当前日(1-31)
+    return year + '-' + month + '-' + date;
+    
   },
   order: function() {
 
@@ -30,7 +43,14 @@ App({
         if(i==things.length-1){
          
           middle.push(things[i]);
-          newthings.push(middle);
+
+
+          middle1.date = middle[0].dates.substring(5);
+          middle1.datediff = this.datediff(this.globalData.nowdate, middle[0].dates);
+
+          middle1.data = middle;
+          newthings.push(middle1);
+
         }
         else{
           middle.push(things[i])
@@ -46,6 +66,8 @@ App({
               return a.times > b.times ? 1 : -1;
             })
             middle1.date = middle[0].dates.substring(5);
+            middle1.datediff = this.datediff(this.globalData.nowdate, middle[0].dates);
+            
             middle1.data = middle;
             newthings.push(middle1);
         
@@ -56,12 +78,14 @@ App({
             })
            
             middle1.date = middle[0].dates.substring(5);
+            middle1.datediff = this.datediff(this.globalData.nowdate, middle[0].dates);
             middle1.data=middle;
             newthings.push(middle1);
             middle=[];
             middle1={};
             middle.push(things[i]);
             middle1.date = middle[0].dates.substring(5);
+            middle1.datediff = this.datediff(this.globalData.nowdate, middle[0].dates);
             middle1.data = middle;
             newthings.push(middle1);
             
@@ -79,6 +103,7 @@ App({
             
       
             middle1.date = middle[0].dates.substring(5);
+            middle1.datediff = this.datediff(this.globalData.nowdate, middle[0].dates);
             middle1.data = middle;
             newthings.push(middle1);
             middle = [];
@@ -103,9 +128,19 @@ App({
    
   },
 
+  datediff: function (sDate1, sDate2){
+    var aDate, oDate1, oDate2, iDays
+    aDate = sDate1.split("-")
+    oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]) //转换为9-25-2017格式 
+    aDate = sDate2.split("-")
+    oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])
+    iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24) //把相差的毫秒数转换为天数 
+    return iDays
+  },
+
 
   globalData: {
-    userInfo: null,
+    nowdate:'',
     data:[
       {
         'title': '和根基一块吃饭',
