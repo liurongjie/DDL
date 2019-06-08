@@ -3,9 +3,6 @@ var app=getApp();
 Page({
   
   data: {
-    touchStartPageX: [],
-    scrollLeft: 0,
-    isNeedAddClassifyButton: true,
     things: [
      
       
@@ -17,75 +14,42 @@ Page({
       things:app.globalData.things,
     });
     console.log("thing")
-    console.log(this.data.things)
-    var touchStartPageX = [];
-    for (var i = 0; i < this.data.things.length; i++) {
-      touchStartPageX.push(0);
-    }
-    this.setData({
-      touchStartPageX: touchStartPageX,
-    })
+  
   },
-  _touchStart: function (e) {
-    var i = e.currentTarget.dataset.index;
-    var touchStartPageX = this.data.touchStartPageX;
-    touchStartPageX[i] = e.changedTouches[0].pageX;
-    this.setData({
-      touchStartPageX: touchStartPageX,
-    })
-  },
-  /**
-   * 手指触摸结束
-   */
-  _touchEnd: function (e) {
-    //return ;
-    var i = e.currentTarget.dataset.index;
-    var touchStartPageX = this.data.touchStartPageX;
 
-    var things = this.data.things;
-    let touchEndPageX = e.changedTouches[0].pageX,
-      offSetStartToEnd = touchEndPageX - touchStartPageX[i];
-    if (offSetStartToEnd < 35 & offSetStartToEnd > -35) {
-      return;
-    };
-    if (offSetStartToEnd > 35) {
-      if (touchStartPageX[i] === 0) return;
-
-      things[i].scrollLeft = 0;
-      this.setData({
-        things: things,
-      });
-    };
-    if (offSetStartToEnd < -35) {
-      things[i].scrollLeft = this.data.isNeedAddClassifyButton ? 200 : 100;
-      this.setData({
-        things: things,
-      })
+  onShareAppMessage:function(){
+    console.log("分享")
+    return {
+      title: '新的DDL请接收', // 转发后 所显示的title
+      path: '/pages/try/try', // 相对的路径
+      success: (res) => {    // 成功后要做的事情
+       console.log("f")
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
     }
+    console.log("长按分享");
   },
-  /**
-   * 点击删除按钮
-   */
-  _deleteTouchEnd: function (e) {
-    let touchEndPageX = e.changedTouches[0].pageX,
-      offSetStartToEnd = touchEndPageX - this.data.touchStartPageX;
-    if (offSetStartToEnd < 10 & offSetStartToEnd > -10) {
-      this.triggerEvent('delete', {});
-    };
-    return;
+  deletelong:function(){
+    wx.showModal({
+      title: '是否删除该DDL~',
+      content: '删除后不可恢复哦',
+      success: function (res) {
+        if (res.confirm) {
+          
+
+
+
+
+        } else {//这里是点击了取消以后
+          console.log('用户点击取消')
+        }
+      }
+    })
+    console.log("长按删除")
   },
-  /**
-   * 点击设置按钮
-   */
-  _setTouchEnd: function (e) {
-    let touchEndPageX = e.changedTouches[0].pageX,
-      offSetStartToEnd = touchEndPageX - this.data.touchStartPageX;
-    if (offSetStartToEnd < 10 & offSetStartToEnd > -10) {
-      this.triggerEvent('set', {});
-    };
-    return;
-  },
-  //  点击时间组件确定事件  
   goto:function(){
     console.log("进入");
     wx.navigateTo({

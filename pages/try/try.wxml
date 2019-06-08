@@ -1,75 +1,28 @@
-
-
 <view class='container'>
   <block wx:for="{{things}}" wx:key="{{item.id}}">
-  </block>
-<!--今天-->
- <view style='display:flex;flex-direction:row;'>
-    <view class='title'>今天 06-06</view>
-    <text style='position: relative; width: 200rpx;height: 50rpx;line-height: 50rpx;text-align: center; color: rgba(255,255,255,0.5);font-size: 27rpx;'>周四 五月初四</text>
-  </view>
-
-
-
-<!--事件列表-->
-  <block wx:for="{{things}}" wx:key="{{item.id}}">
-    <view class="classify-item">
-      <scroll-view scroll-x="true" bindtouchstart="_touchStart" catch:touchend="_touchEnd" scroll-with-animation="true" scroll-left="{{item.scrollLeft}}" data-index="{{item.id}}" bindlongpress='goto'>
-        <view class="item-width {{isNeedAddClassifyButton ? 'width-change' : ''}}">
-          <view class="item-content ">
+    <!--今天-->
+    <view style='display:flex;flex-direction:row;margin-top: 30rpx;margin-bottom: 10rpx;'>
+      <view class='title'>今天 06-06</view>
+      <text style='position: relative; width: 200rpx;height: 50rpx;line-height: 50rpx;text-align: center; color: rgba(255,255,255,0.5);font-size: 27rpx;'>周四 五月初四</text>
+    </view>
+    <!--事件列表-->
+    <block wx:for="{{item}}" wx:key="{{item.id}}">
+      <view class="classify-item" bindlongpress="deletelong">
+        <view class="item-content ">
           <view class='time'>
-            <!-- <image src='/static/hometime.svg' class='hometime'>  </image> -->
             {{item.times}}
-            
-            </view>
-            <view class='context'>{{item.title}}
-              
-            
-            </view>
-            <view class='label'>生活</view>
-            
-            
           </view>
-          <view class="item-classify" wx:if="{{isNeedAddClassifyButton}}" bind:touchend="_setTouchEnd">
-            <text style='font-size: 16px;'>分享</text>
+          <view class='context'>{{item.title}}
           </view>
-          <view class="item-delete" bind:touchend="_deleteTouchEnd">
-            <text style='font-size: 16px;'>完成</text>
-          </view>
+          <view class='label'>生活</view>
+          <button class='share'  open-type="share" >
+            <image src='/static/share.svg' class='shareimg'></image>
+          </button>
+
         </view>
-      </scroll-view>
-    </view>
+
+      </view>
+    </block>
   </block>
-
-
-
-
-  
- <!-- <view style='display:flex;flex-direction:row;margin-top:50rpx;'>
-    <view class='title'style=' background-color: rgb(46, 169, 164);' >明天 06-07</view>
-    <text style='position: relative; width: 200rpx;height: 50rpx;line-height: 50rpx;text-align: center; color: rgba(255,255,255,0.5);font-size: 27rpx;'>周五 五月初五</text>
-  </view>
-  <block wx:for="{{things}}" wx:key="{{item.id}}">
-    <view class="classify-item">
-      <scroll-view scroll-x="true" bindtouchstart="_touchStart" catch:touchend="_touchEnd" scroll-with-animation="true" scroll-left="{{item.scrollLeft}}" data-index="{{item.id}}" bindlongpress='goto'>
-        <view class="item-width {{isNeedAddClassifyButton ? 'width-change' : ''}}">
-          <view class="item-content ">
-            <view class='time'>全天</view>
-            <view class='context'>和根基一起吃饭</view>
-            
-          </view>
-          <view class="item-classify" wx:if="{{isNeedAddClassifyButton}}" bind:touchend="_setTouchEnd">
-            <text style='font-size: 16px;'>分享</text>
-          </view>
-          <view class="item-delete" bind:touchend="_deleteTouchEnd">
-            <text style='font-size: 16px;'>完成</text>
-          </view>
-        </view>
-      </scroll-view>
-    </view>
-  </block> -->
-
-
-
   <image src='/static/plus.svg' class='plus' bindtap='goto'></image>
 </view>
