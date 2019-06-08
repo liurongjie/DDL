@@ -1,3 +1,5 @@
+var app=getApp();
+
 Page({
   data: {
     hidemiddle: true,
@@ -165,6 +167,20 @@ Page({
             })
 
           },1000);
+          var data={};
+          data.title = this.data.title;
+          data.dates = this.data.dates;
+          data.times = this.data.times;
+          data.kind = this.data.kind;
+          data.importance = this.data.importance;
+          data.context = this.data.context;
+
+          var olddata=app.globalData.data;
+          olddata.push(data);
+          app.globalData.data=olddata;
+          app.order();
+
+
           console.log(this.data.title);
           console.log(this.data.dates)
           console.log(this.data.times)

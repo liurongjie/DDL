@@ -5,6 +5,16 @@ App({
   },
   order: function() {
 
+    var data = this.globalData.data;
+    for (var i = 0; i < data.length;i++){
+      data[i].id=i;
+    }
+    this.globalData.things=data;
+
+
+
+
+
     var things = this.globalData.things.sort(function(a, b) {
       return a.dates > b.dates ? 1 : -1;
     })
@@ -38,11 +48,7 @@ App({
             middle1.date = middle[0].dates.substring(5);
             middle1.data = middle;
             newthings.push(middle1);
-            //newthings.push(middle);
-         
-
-
-            //newthings.push(middle)
+        
           }
           else {
             middle = middle.sort(function (a, b) {
@@ -52,13 +58,11 @@ App({
             middle1.date = middle[0].dates.substring(5);
             middle1.data=middle;
             newthings.push(middle1);
-            //newthings.push(middle);
             middle=[];
             middle1={};
             middle.push(things[i]);
             middle1.date = middle[0].dates.substring(5);
             middle1.data = middle;
-            //newthings.push(middle);
             newthings.push(middle1);
             
 
@@ -77,13 +81,8 @@ App({
             middle1.date = middle[0].dates.substring(5);
             middle1.data = middle;
             newthings.push(middle1);
-            //newthings.push(middle);
             middle = [];
             middle1 = {};
-
-
-            //newthings.push(middle)
-           // middle = [];
             middle.push(things[i])
             oldmidlle = things[i];
 
@@ -110,91 +109,39 @@ App({
     data:[
       {
         'title': '和根基一块吃饭',
-        'dates': '2016-11-08',
-        'times': '12:04',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-      {
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-08',
-        'times': '12:04',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-      {
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-08',
-        'times': '12:04',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-      {
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-08',
-        'times': '12:04',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-
-    ],
-    things: [{
-        'id':0,
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-08',
-        'times': '12:04',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-      {
-        'id': 1,
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-09',
-        'times': '12:03',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-
-      {
-        'id': 2,
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-10',
-        'times': '12:02',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-      {
-        'id': 3,
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-10',
-        'times': '12:02',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-
-      {
-        'id': 4,
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-08',
+        'dates': '2016-11-02',
         'times': '12:01',
         'kind': 0,
         'importance': true,
         'context': '吃完饭我们去休息',
       },
-
-
-
-
+      {
+        'title': '和根基一块吃饭',
+        'dates': '2016-11-02',
+        'times': '12:02',
+        'kind': 0,
+        'importance': true,
+        'context': '吃完饭我们去休息',
+      },
+      {
+        'title': '和根基一块吃饭',
+        'dates': '2016-11-08',
+        'times': '12:04',
+        'kind': 0,
+        'importance': true,
+        'context': '吃完饭我们去休息',
+      },
+      {
+        'title': '和根基一块吃饭',
+        'dates': '2016-11-08',
+        'times': '12:04',
+        'kind': 0,
+        'importance': true,
+        'context': '吃完饭我们去休息',
+      },
 
     ],
+    things: [],
     newthings:[],
 
 

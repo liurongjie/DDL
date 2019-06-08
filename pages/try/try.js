@@ -17,6 +17,12 @@ Page({
     console.log(this.data.things)
   
   },
+  onShow:function(){
+    console.log("页面周期");
+    this.setData({
+      things: app.globalData.newthings,
+    });
+  },
 
   onShareAppMessage:function(){
     console.log("分享")
