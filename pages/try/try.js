@@ -14,6 +14,7 @@ Page({
       things:app.globalData.newthings,
     });
     console.log("thing")
+    console.log(this.data.things)
   
   },
 

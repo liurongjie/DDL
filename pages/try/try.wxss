@@ -65,7 +65,7 @@
 }
 
 .plus {
-  position: absolute;
+  position: fixed;
   width: 120rpx;
   height: 120rpx;
   bottom: 100rpx;

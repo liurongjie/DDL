@@ -2,11 +2,11 @@
   <block wx:for="{{things}}" wx:key="{{item.id}}">
     <!--今天-->
     <view style='display:flex;flex-direction:row;margin-top: 30rpx;margin-bottom: 10rpx;'>
-      <view class='title'>今天 06-06</view>
+      <view class='title'> {{item.date}}</view>
       <text style='position: relative; width: 200rpx;height: 50rpx;line-height: 50rpx;text-align: center; color: rgba(255,255,255,0.5);font-size: 27rpx;'>周四 五月初四</text>
     </view>
     <!--事件列表-->
-    <block wx:for="{{item}}" wx:key="{{item.id}}">
+    <block wx:for="{{item.data}}" wx:key="{{item.id}}">
       <view class="classify-item" bindlongpress="deletelong" data-index='{{item}}'>
         <view class="item-content ">
           <view class='time'>

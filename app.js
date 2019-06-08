@@ -11,13 +11,14 @@ App({
    
     var newthings=[];
     var judge=true;
-    var middle = [];
+    var middle = [];//数据
+    var middle1={};//这是日期
     var oldmidlle={};
     for(var i=0;i<things.length;i++){
       if(judge){
         
         if(i==things.length-1){
-          //newthings.push(things[i]);
+         
           middle.push(things[i]);
           newthings.push(middle);
         }
@@ -34,19 +35,32 @@ App({
             middle = middle.sort(function (a, b) {
               return a.times > b.times ? 1 : -1;
             })
-            //newthings=this.mypush(middle,newthings);
-            newthings.push(middle)
+            middle1.date = middle[0].dates.substring(5);
+            middle1.data = middle;
+            newthings.push(middle1);
+            //newthings.push(middle);
+         
+
+
+            //newthings.push(middle)
           }
           else {
             middle = middle.sort(function (a, b) {
               return a.times > b.times ? 1 : -1;
             })
-            //newthings = this.mypush(middle, newthings);
-            newthings.push(middle);
+           
+            middle1.date = middle[0].dates.substring(5);
+            middle1.data=middle;
+            newthings.push(middle1);
+            //newthings.push(middle);
             middle=[];
+            middle1={};
             middle.push(things[i]);
-            newthings.push(middle);
-            //newthings.push(things[i]);
+            middle1.date = middle[0].dates.substring(5);
+            middle1.data = middle;
+            //newthings.push(middle);
+            newthings.push(middle1);
+            
 
           }
         }
@@ -58,9 +72,18 @@ App({
             middle = middle.sort(function (a, b) {
               return a.times > b.times ? 1 : -1;
             })
-            //newthings = this.mypush(middle, newthings);
-            newthings.push(middle)
+            
+      
+            middle1.date = middle[0].dates.substring(5);
+            middle1.data = middle;
+            newthings.push(middle1);
+            //newthings.push(middle);
             middle = [];
+            middle1 = {};
+
+
+            //newthings.push(middle)
+           // middle = [];
             middle.push(things[i])
             oldmidlle = things[i];
 
@@ -78,18 +101,9 @@ App({
     this.globalData.newthings=newthings;
     
    
-    // for(var i=0;i<newthings.length;i++){
-    //   newthings[i].id=i;
-    //   newthings[i].scrollLeft=0;
-    // }
-    // console.log(newthings)
+   
   },
-  mypush:function(data,newthings){
-    for(var i=0;i<data.length;i++){
-      newthings.push(data[i]);
-    }
-    return newthings;
-  },
+
 
   globalData: {
     userInfo: null,
@@ -182,5 +196,99 @@ App({
 
     ],
     newthings:[],
+
+
+    trythings:[
+      {
+        'date':'06-06',
+        'data':[
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+        ]
+      },
+      {
+        'date': '06-07',
+        'data': [
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+        ]
+      },
+      {
+        'date': '06-08',
+        'data': [
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+          {
+            'title': '和根基一块吃饭',
+            'dates': '2016-11-08',
+            'times': '12:04',
+            'kind': 0,
+            'importance': true,
+            'context': '吃完饭我们去休息',
+          },
+        ]
+      }
+    ]
+
+
+
   }
 })
