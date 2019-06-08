@@ -1,0 +1,117 @@
+/* 内容样式 */
+
+.classify-item {
+  font-size: 14px;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.classify-item .item-width {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% + 60px);
+  height: 100%;
+}
+
+.classify-item .width-change {
+  width: calc(100% + 60px + 60px);
+}
+
+.classify-item .item-content {
+  background: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  width: 700rpx;
+  min-height: 70px;
+  padding: 5px 0 5px 10px;
+  margin-left: 25rpx;
+  padding-left: 50rpx;
+}
+
+.time {
+  color: rgb(46, 169, 164);
+}
+
+.context {
+  color: rgb(0, 0, 0);
+  font-size: 35rpx;
+  font-weight: 500;
+  margin-top: 5rpx;
+  display: flex;
+  flex-direction: row;
+}
+.right{
+  position: relative;
+  width: 100rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+  border-radius: 25rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: white;
+  background: green;
+}
+
+.hometime {
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+  top: 10rpx;
+}
+
+/* 分类设置按钮样式 */
+
+.classify-item .item-classify {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 60px;
+  width: 60px;
+  height: 100%;
+  background: #ccc;
+  color: white;
+}
+
+/* 删除按钮样式 */
+
+.classify-item .item-delete {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  background: #dc3545;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.title {
+  position: relative;
+  width: 180rpx;
+  height: 50rpx;
+  margin-left: 25rpx;
+  border-radius: 25rpx;
+  background-color: rgb(255, 117, 117);
+  color: white;
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+
+.plus{
+  position: absolute;
+  width: 120rpx;
+  height: 120rpx;
+  bottom: 100rpx;
+  right: 50rpx;
+}

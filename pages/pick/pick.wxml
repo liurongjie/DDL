@@ -1,0 +1,47 @@
+<view class='container'>
+  <view class='title'>
+    <input placeholder="请输入DDL" placeholder-class="input" maxlength="50" value='{{content}}' bindinput='bind1' ></input>
+
+  </view>
+
+  <view class="section">
+    <picker mode="date" value="{{date}}" start="2019-01-01" end="2030-12-30" bindchange="bindDateChange" class='calendar'>
+      {{dates}}
+      <image src='/static/calendar.svg' class='caimg'></image>
+    </picker>
+
+    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange" class='time'>
+      {{times}}
+      <image src='/static/time.svg' class='timeimg'></image>
+    </picker>
+  </view>
+  <view class='choose'>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox" wx:for="{{items}}" wx:key="{{item.id}}">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}" />{{item.value}}
+      </label>
+    </checkbox-group>
+  </view>
+  <view class='setimportance'>
+    <image src='/static/star.svg' class='starimg'></image>
+    <text style='margin-left:20rpx;'>设为星标</text>
+    <switch  bindchange="switch1Change" class='switch'></switch>
+  </view>
+
+  <view class='choosehide' bindtap='changehide'>
+    记录更多内容
+    <image src="{{hidemiddle?'/static/down.png':'/static/up.png'}}"class='downimg'></image>
+
+  </view>
+  <view class='middle' hidden='{{hidemiddle}}'>
+    <textarea placeholder='请输入详细内容' placeholder-class='wordstyle' bindinput='bind2' ></textarea>
+  </view>
+
+  <view class='bottom'>
+
+    <view class='button' bindtap='createDDL'>创建DDL</view>
+  </view>
+
+
+
+</view>
