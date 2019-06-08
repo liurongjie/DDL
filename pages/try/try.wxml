@@ -7,7 +7,7 @@
     </view>
     <!--事件列表-->
     <block wx:for="{{item}}" wx:key="{{item.id}}">
-      <view class="classify-item" bindlongpress="deletelong">
+      <view class="classify-item" bindlongpress="deletelong" data-index='{{item}}'>
         <view class="item-content ">
           <view class='time'>
             {{item.times}}

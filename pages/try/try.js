@@ -11,7 +11,7 @@ Page({
 
   onReady: function () {
     this.setData({
-      things:app.globalData.things,
+      things:app.globalData.newthings,
     });
     console.log("thing")
   
@@ -32,14 +32,31 @@ Page({
     }
     console.log("长按分享");
   },
-  deletelong:function(){
+  deletelong:function(e){
+    var that=this;
+    var id = e.currentTarget.dataset.index.id;
+    var newthings=[];
     wx.showModal({
       title: '是否删除该DDL~',
       content: '删除后不可恢复哦',
       success: function (res) {
         if (res.confirm) {
-          
+          //console.log(e.currentTarget.dataset.index)
+          for(var i=0;i<app.globalData.things.length;i++){
+            if(id==app.globalData.things[i].id){
 
+            }
+            else{
+              newthings.push(app.globalData.things[i]);
+            }
+          }
+          app.globalData.things=newthings;
+          app.order();
+          that.setData({
+            things:app.globalData.newthings,
+          })
+          console.log("删除后");
+          console.log(that.data.things);
 
 
 
