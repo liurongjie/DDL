@@ -4,6 +4,7 @@ App({
     
     var nowdate = this.getnowdate();
     this.globalData.nowdate=nowdate;
+    this.getdataid();
     this.order();
     
   },
@@ -16,13 +17,18 @@ App({
     return year + '-' + month + '-' + date;
     
   },
+  getdataid:function(){
+    var data = this.globalData.data;
+    for (var i = 0; i < data.length; i++) {
+      data[i].id = i;
+    }
+    this.globalData.iddata = data;
+
+  },
+
   order: function() {
 
-    var data = this.globalData.data;
-    for (var i = 0; i < data.length;i++){
-      data[i].id=i;
-    }
-    this.globalData.things=data;
+   this.globalData.things=this.globalData.iddata;
 
 
 
@@ -176,6 +182,7 @@ App({
       },
 
     ],
+    iddata:[],
     things: [],
     newthings:[],
 

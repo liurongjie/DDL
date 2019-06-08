@@ -49,15 +49,15 @@ Page({
       success: function (res) {
         if (res.confirm) {
           //console.log(e.currentTarget.dataset.index)
-          for(var i=0;i<app.globalData.things.length;i++){
-            if(id==app.globalData.things[i].id){
+          for(var i=0;i<app.globalData.iddata.length;i++){
+            if (id == app.globalData.iddata[i].id){
 
             }
             else{
-              newthings.push(app.globalData.things[i]);
+              newthings.push(app.globalData.iddata[i]);
             }
           }
-          app.globalData.things=newthings;
+          app.globalData.iddata=newthings;
           app.order();
           that.setData({
             things:app.globalData.newthings,

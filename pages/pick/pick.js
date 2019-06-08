@@ -178,6 +178,7 @@ Page({
           var olddata=app.globalData.data;
           olddata.push(data);
           app.globalData.data=olddata;
+          app.getdataid();
           app.order();
 
 
