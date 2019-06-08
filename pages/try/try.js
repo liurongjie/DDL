@@ -1,30 +1,23 @@
+var app=getApp();
+
 Page({
+  
   data: {
     touchStartPageX: [],
     scrollLeft: 0,
     isNeedAddClassifyButton: true,
     things: [
-      {
-        id: 0,
-        scrollLeft: 0,
-      },
-      {
-        id: 1,
-        scrollLeft: 0,
-      },
-      {
-        id: 2,
-        scrollLeft: 0,
-      },
-      {
-        id: 3,
-        scrollLeft: 0,
-      },
+     
       
     ]
   },
 
   onReady: function () {
+    this.setData({
+      things:app.globalData.things,
+    });
+    console.log("thing")
+    console.log(this.data.things)
     var touchStartPageX = [];
     for (var i = 0; i < this.data.things.length; i++) {
       touchStartPageX.push(0);
@@ -64,7 +57,7 @@ Page({
       });
     };
     if (offSetStartToEnd < -35) {
-      things[i].scrollLeft = this.data.isNeedAddClassifyButton ? 120 : 60;
+      things[i].scrollLeft = this.data.isNeedAddClassifyButton ? 200 : 100;
       this.setData({
         things: things,
       })

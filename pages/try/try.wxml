@@ -1,8 +1,8 @@
 
 
 <view class='container'>
-
-
+  <block wx:for="{{things}}" wx:key="{{item.id}}">
+  </block>
 <!--今天-->
  <view style='display:flex;flex-direction:row;'>
     <view class='title'>今天 06-06</view>
@@ -17,12 +17,17 @@
       <scroll-view scroll-x="true" bindtouchstart="_touchStart" catch:touchend="_touchEnd" scroll-with-animation="true" scroll-left="{{item.scrollLeft}}" data-index="{{item.id}}" bindlongpress='goto'>
         <view class="item-width {{isNeedAddClassifyButton ? 'width-change' : ''}}">
           <view class="item-content ">
-            <view class='context'>和根基一起吃饭
+          <view class='time'>
+            <!-- <image src='/static/hometime.svg' class='hometime'>  </image> -->
+            {{item.times}}
+            
+            </view>
+            <view class='context'>{{item.title}}
               
             
             </view>
-            <view class='time'>
-            <image src='/static/hometime.svg' class='hometime'>  </image>21:59</view>
+            <view class='label'>生活</view>
+            
             
           </view>
           <view class="item-classify" wx:if="{{isNeedAddClassifyButton}}" bind:touchend="_setTouchEnd">

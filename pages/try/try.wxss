@@ -10,19 +10,20 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: calc(100% + 60px);
+  width: calc(100% + 100px);
   height: 100%;
 }
 
 .classify-item .width-change {
-  width: calc(100% + 60px + 60px);
+  width: calc(100% + 100px + 100px);
 }
 
 .classify-item .item-content {
   background: rgba(255, 255, 255, 1);
   box-sizing: border-box;
   width: 700rpx;
-  min-height: 70px;
+  min-height: 40px;
+  border-radius: 10rpx;
   padding: 5px 0 5px 10px;
   margin-left: 25rpx;
   padding-left: 50rpx;
@@ -30,15 +31,19 @@
 
 .time {
   color: rgb(46, 169, 164);
+  font-size: 25rpx;
+  font-weight: 500;
+
 }
 
 .context {
   color: rgb(0, 0, 0);
-  font-size: 35rpx;
+  font-size: 30rpx;
   font-weight: 500;
   margin-top: 5rpx;
   display: flex;
   flex-direction: row;
+  
 }
 .right{
   position: relative;
@@ -66,11 +71,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 60px;
-  width: 60px;
+  right: 100px;
+  width: 100px;
   height: 100%;
   background: #ccc;
   color: white;
+  font-size: 30rpx;
+  font-weight: 700;
 }
 
 /* 删除按钮样式 */
@@ -81,10 +88,12 @@
   align-items: center;
   justify-content: center;
   right: 0;
-  width: 60px;
+  width: 100px;
   height: 100%;
   background: #dc3545;
   color: white;
+  font-size: 30rpx;
+  font-weight: 700;
 }
 
 ::-webkit-scrollbar {
@@ -114,4 +123,8 @@
   height: 120rpx;
   bottom: 100rpx;
   right: 50rpx;
+}
+.label{
+  position: relative;
+  margin-left: 575rpx;
 }
