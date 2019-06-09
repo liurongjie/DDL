@@ -1,11 +1,10 @@
 {
   "pages": [
     "pages/try/try",
+    "pages/share/share",
+    
     "pages/pick/pick",
-    
-
     "pages/index/index"
-    
     
   ],
   "window": {

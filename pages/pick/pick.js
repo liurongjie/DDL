@@ -1,12 +1,15 @@
 var app=getApp();
 
+
 Page({
   data: {
+    way:0,//进入方式0，1，2 点击进入，添加，他人分享
+    id:0,
     hidemiddle: true,
     items: [{
       id: 0,
       value: '学习',
-      checked: true
+      checked: false
     },
     {
       id: 1,
@@ -45,22 +48,78 @@ Page({
   },
 
   onReady: function () {
+
+    console.log("无敌")
     var myDate = new Date();
     var year = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
     var month = myDate.getMonth() + 1; //获取当前月份(0-11,0代表1月)
     var date = myDate.getDate(); //获取当前日(1-31)
-    this.setData({
-      dates: year + '-' + month + '-' + date,
-      nowdates: year + '-' + month + '-' + date,
-    })
     var hour = myDate.getHours(); //获取当前小时数(0-23)
     var minute = myDate.getMinutes(); //获取当前分钟数(0-59)
+    if(this.data.way==1){
+      this.setData({
+        dates: year + '-' + month + '-' + date,
+        nowdates: year + '-' + month + '-' + date,
+        way:1,
+      })
+     
+      this.setData({
+        times: hour + ':' + minute,
+        nowtimes: hour + ':' + minute,
+        way:1,
+      })
+
+    }
+    else{
+      this.setData({
+        nowdates: year + '-' + month + '-' + date,
+      })
+
+      this.setData({
+        nowtimes: hour + ':' + minute,
+      })
+
+    }
+    var items = this.data.items;
+    for(var i=0;i<items.length;i++){
+      if(this.data.kind==items[i].id){
+        items[i].checked=true;
+        break;
+
+      }
+      
+    }
     this.setData({
-      times: hour + ':' + minute,
-      nowtimes: hour + ':' + minute,
+      items:items,
     })
+    
 
 
+  },
+  onLoad: function (options) {
+    console.log("new")
+    if(options.title){
+      console.log("haha")
+      this.setData({
+        title:options.title,
+        dates: options.dates,
+        times: options.times,
+        kind: options.kind,
+        importance: options.importance,
+        context: options.context,
+        way:options.way,
+        id:options.id,
+
+      })
+      
+
+    }
+    else{
+      this.setData({
+        way:1,
+      })
+    }
+    
   },
   //  点击时间组件确定事件  
   bindTimeChange: function (e) {
@@ -156,31 +215,66 @@ Page({
             duration: 1000,
           })
         } else {
-          wx.showToast({
-            title: 'DDL添加成功',
-            icon: "none",
-            duration: 1500,
-          })
-          setTimeout(function(){
-            wx.navigateBack({
-              delta:1,
+          if(this.data.way!=0){
+            wx.showToast({
+              title: 'DDL添加成功',
+              icon: "none",
+              duration: 1500,
             })
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1,
+              })
 
-          },1000);
-          var data={};
-          data.title = this.data.title;
-          data.dates = this.data.dates;
-          data.times = this.data.times;
-          data.kind = this.data.kind;
-          data.importance = this.data.importance;
-          data.context = this.data.context;
+            }, 1000);
+            var data = {};
+            data.title = this.data.title;
+            data.dates = this.data.dates;
+            data.times = this.data.times;
+            data.kind = this.data.kind;
+            data.importance = this.data.importance;
+            data.context = this.data.context;
 
-          var olddata=app.globalData.data;
-          olddata.push(data);
-          app.globalData.data=olddata;
-          app.getdataid();
-          app.order();
+            var olddata = app.globalData.data;
+            olddata.push(data);
+            app.globalData.data = olddata;
+            app.getdataid();
+            app.order();
 
+
+          }
+          else{
+            var newthings=[];
+            for (var i = 0; i < app.globalData.iddata.length; i++) {
+              if (this.data.id == app.globalData.iddata[i].id) {
+                var data={};
+                data.title = this.data.title;
+                data.dates = this.data.dates;
+                data.times = this.data.times;
+                data.kind = this.data.kind;
+                data.importance = this.data.importance;
+                data.context = this.data.context;
+                data.id=this.data.id;
+                newthings.push(data);
+              } else {
+                newthings.push(app.globalData.iddata[i]);
+              }
+            }
+            app.globalData.iddata = newthings;
+            app.order();
+            wx.showToast({
+              title: 'DDL更改成功',
+              icon: "none",
+              duration: 1500,
+            })
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1,
+              })
+
+            }, 1000);
+          }
+         
 
           console.log(this.data.title);
           console.log(this.data.dates)

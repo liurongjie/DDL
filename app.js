@@ -7,8 +7,9 @@ App({
     this.getdataid();
     this.order();
     
+    
   },
-
+ 
   getnowdate:function(){
     var myDate = new Date();
     var year = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
@@ -17,6 +18,15 @@ App({
     return year + '-' + month + '-' + date;
     
   },
+  getweek:function(year,month,date){
+    if (month == 1 || month == 2) {
+      month += 12;
+      year--;
+    }
+    var iWeek = (date + 2 * month + 3 * (month + 1) / 5 + year + year / 4 - year / 100 + year / 400) % 7;
+    return iWeek;
+  },
+
   getdataid:function(){
     var data = this.globalData.data;
     for (var i = 0; i < data.length; i++) {
@@ -53,6 +63,7 @@ App({
 
           middle1.date = middle[0].dates.substring(5);
           middle1.datediff = this.datediff(this.globalData.nowdate, middle[0].dates);
+         // middle1.week=this.iWeek()
 
           middle1.data = middle;
           newthings.push(middle1);
@@ -149,38 +160,22 @@ App({
     nowdate:'',
     data:[
       {
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-02',
-        'times': '12:01',
+        'title': '长按进行删除',
+        'dates': '2019-06-08',
+        'times': '18:46',
         'kind': 0,
         'importance': true,
         'context': '吃完饭我们去休息',
       },
       {
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-02',
-        'times': '12:02',
+        'title': '转发可以让好友添加DDL哦',
+        'dates': '2019-06-08',
+        'times': '18:46',
         'kind': 0,
         'importance': true,
         'context': '吃完饭我们去休息',
       },
-      {
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-08',
-        'times': '12:04',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-      {
-        'title': '和根基一块吃饭',
-        'dates': '2016-11-08',
-        'times': '12:04',
-        'kind': 0,
-        'importance': true,
-        'context': '吃完饭我们去休息',
-      },
-
+     
     ],
     iddata:[],
     things: [],

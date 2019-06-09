@@ -1,0 +1,49 @@
+<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+<view class='container' style='background:rgb(240, 240, 240);'>
+  <view class='top'>
+
+  </view>
+  <view style='display:flex;flex-direction:row;'>
+    <open-data type="userAvatarUrl" class="photo"></open-data>
+    <view style='display:flex;flex-direction:column'>
+      <open-data type="userNickName" class="name"></open-data>
+      <view class='myddl'> 我分享的ddl</view>
+
+    </view>
+
+
+
+
+  </view>
+  <view class='middle'>
+    <view class='list'>
+      <image src='/static/cicle.svg' class='icon1'></image>
+      <view>{{title}}</view>
+      <view class='logo' wx:if="{{kind==0}}">学习</view>
+      <view class='logo' wx:if="{{kind==1}}">工作</view>
+      <view class='logo' wx:if="{{kind==2}}">比赛</view>
+      <view class='logo' wx:if="{{kind==3}}">生活</view>
+      <view class='logo' wx:if="{{kind==4}}">其他</view>
+
+
+    </view>
+    <view class='list'>
+      <image src='/static/icon2.svg' class='icon1'></image>
+      <view>ddl</view>
+      <view class='time'> {{dates}}  {{times}}</view>
+    </view>
+
+
+
+  </view>
+  <view class='bottom'>
+    <button class='share' open-type="share" hover-class="sharein" data-index='{{item}}' bindtap='sharedata'>
+      <image src='/static/share1.svg' class='shareimg'></image>
+      <view>点击分享</view>
+    </button>
+
+  </view>
+
+
+
+</view>

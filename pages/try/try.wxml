@@ -3,26 +3,37 @@
     <!--今天-->
     <view style='display:flex;flex-direction:row;margin-top: 30rpx;margin-bottom: 10rpx;'>
       <view class='title'> {{item.date}}</view>
-      <text style='position: relative; width: 200rpx;height: 50rpx;line-height: 50rpx;text-align: center; color: rgba(255,255,255,0.5);font-size: 27rpx;'>周四 五月初四</text>
+      <!-- <text style='position: relative; width: 300rpx;height: 50rpx;line-height: 50rpx;text-align: center; color: rgba(255,255,255,0.5);font-size: 27rpx;'>周四 五月初四 {{item.datediff}}天后</text> -->
+      <!--  -->
     </view>
     <!--事件列表-->
     <block wx:for="{{item.data}}" wx:key="{{item.id}}">
       <view class="classify-item" bindlongpress="deletelong" data-index='{{item}}'>
-        <view class="item-content ">
+        <view class="item-content " bindtap='godetail' data-index='{{item}}'>
           <view class='time'>
             {{item.times}}
           </view>
           <view class='context'>{{item.title}}
           </view>
-          <view class='label'>生活</view>
-          <button class='share'  open-type="share" >
-            <image src='/static/share.svg' class='shareimg'></image>
-          </button>
+          <view class='label' wx:if="{{item.kind==0}}">学习</view>
+          <view class='label' wx:if="{{item.kind==1}}">工作</view>
+          <view class='label' wx:if="{{item.kind==2}}">比赛</view>
+          <view class='label' wx:if="{{item.kind==3}}">生活</view>
+          <view class='label' wx:if="{{item.kind==4}}">其他</view>
+
 
         </view>
+        <button class='share'  hover-class="sharein" data-index='{{item}}' bindtap='sharedata'>
+          <image src='/static/share.svg' class='shareimg'></image>
+        </button>
 
       </view>
     </block>
   </block>
-  <image src='/static/plus.svg' class='plus' bindtap='goto'></image>
+  <view class='null'></view>
+  <view class='plus' bindtap='goto'>
+    <view class='hline'></view>
+    <view class='vline'></view>
+
+  </view>
 </view>

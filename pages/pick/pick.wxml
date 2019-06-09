@@ -1,16 +1,16 @@
 <view class='container'>
   <view class='title'>
-    <input placeholder="请输入DDL" placeholder-class="input" maxlength="50" value='{{content}}' bindinput='bind1' ></input>
+    <input placeholder="请输入DDL" placeholder-class="input" maxlength="50" value='{{title}}' bindinput='bind1' ></input>
 
   </view>
 
   <view class="section">
-    <picker mode="date" value="{{date}}" start="2019-01-01" end="2030-12-30" bindchange="bindDateChange" class='calendar'>
+    <picker mode="date" value="{{dates}}" start="2019-01-01" end="2030-12-30" bindchange="bindDateChange" class='calendar'>
       {{dates}}
       <image src='/static/calendar.svg' class='caimg'></image>
     </picker>
 
-    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange" class='time'>
+    <picker mode="time" value="{{times}}" start="00:00" end="23:59" bindchange="bindTimeChange" class='time'>
       {{times}}
       <image src='/static/time.svg' class='timeimg'></image>
     </picker>
@@ -28,9 +28,11 @@
     <switch  bindchange="switch1Change" class='switch'></switch>
   </view>
 
-  <view class='choosehide' bindtap='changehide'>
+  <view class='choosehide' bindtap='changehide' >
     记录更多内容
     <image src="{{hidemiddle?'/static/down.png':'/static/up.png'}}"class='downimg'></image>
+
+
 
   </view>
   <view class='middle' hidden='{{hidemiddle}}'>
@@ -39,7 +41,7 @@
 
   <view class='bottom'>
 
-    <view class='button' bindtap='createDDL'>创建DDL</view>
+    <view class='button' bindtap='createDDL'>{{way==0?'更改DDL':'创建DDL'}}</view>
   </view>
 
 

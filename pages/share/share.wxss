@@ -1,0 +1,114 @@
+.top{
+  position: absolute;
+  width: 100%;
+  height: 120rpx;
+  background: white;
+}
+
+.photo{
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  margin-left: 50rpx;
+  margin-right: 20rpx;
+  
+}
+.name{
+  position: relative;
+  font-size: 35rpx;
+  font-weight: 600;
+  color: rgb(51, 51, 51);
+  margin-top: 5rpx;
+
+}
+.myddl{
+  position: relative;
+  font-weight: 500;
+  font-size: 25rpx;
+  margin-top: 15rpx;
+  letter-spacing:5rpx;
+  color: rgb(171, 171, 171);
+}
+
+.middle{
+  position: relative;
+  
+  width: 100%;
+  margin-top: 50rpx;
+  height: 300rpx;
+}
+.list{
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  border: 2rpx solid rgb(240, 240, 240);
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  background: white;
+}
+.icon1{
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 15rpx;
+}
+.logo{
+  position: absolute;
+  width: 90rpx;
+  height: 50rpx;
+  background: rgb(215, 240, 219);
+  margin-top: 25rpx;
+  border-radius: 25rpx;
+  font-size: 25rpx;
+  line-height: 50rpx;
+  text-align: center;
+  right: 50rpx;
+  color: rgb(44, 202, 121);
+}
+.time{
+  position: absolute;
+  right: 50rpx;
+}
+
+.bottom{
+  position: absolute;
+  width: 100%;
+  height: 120rpx;
+  bottom: 0rpx;
+  background: white;
+}
+.share {
+  position: relative;
+  width: 250rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+  border: 3rpx solid #4dd490;
+  border-radius: 40rpx;
+  background: transparent;
+  font-size: 35rpx;
+  font-weight: 500;
+  line-height: 80rpx;
+  color: #4dd490;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.sharein{
+  background-color: beige;
+}
+button::after {
+  border: 0;
+} 
+.shareimg {
+  position: relative;
+  width: 50rpx;
+  height: 50rpx;
+  margin-top:12rpx;
+}
