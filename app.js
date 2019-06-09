@@ -1,13 +1,22 @@
 //app.js
 App({
   onLaunch: function() {
-    
+    var data=wx.getStorageSync('data');
+    this.globalData.data=data;
     var nowdate = this.getnowdate();
     this.globalData.nowdate=nowdate;
     this.getdataid();
     this.order();
     
     
+  },
+  onHide:function(){
+    console.log("onhide")
+    wx.setStorage({
+      key: 'data',
+      data: this.globalData.data,
+    })
+
   },
  
   getnowdate:function(){
