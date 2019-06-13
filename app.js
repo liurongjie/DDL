@@ -2,7 +2,11 @@
 App({
   onLaunch: function() {
     var data=wx.getStorageSync('data');
-    this.globalData.data=data;
+    if(data){
+      this.globalData.data = data;
+
+    }
+    
     var nowdate = this.getnowdate();
     this.globalData.nowdate=nowdate;
     this.getdataid();
