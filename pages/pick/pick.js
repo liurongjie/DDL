@@ -200,6 +200,7 @@ Page({
     console.log(this.data.context)
   },
   createDDL: function () {
+    var that=this;
     if (this.data.title) {
       if (this.data.nowdates < this.data.dates) {
         wx.showToast({
@@ -216,6 +217,28 @@ Page({
           })
         } else {
           if(this.data.way!=0){
+            wx.request({
+              url: 'http://1397608894-qq.vicp.io:42685/ddl/createddl',
+              data: {
+                'userid': app.globalData.userid,
+                'title': that.data.title,
+                'dates': that.data.dates,
+                'allday': 1,
+                'times': that.data.times,
+                'kind': that.data.kind,
+                'importance': that.data.importance,
+                'context': that.data.context,
+
+              },
+              success: (res) => {
+                
+                console.log(res.data)
+
+              }
+            })
+
+
+
             wx.showToast({
               title: 'DDL添加成功',
               icon: "none",

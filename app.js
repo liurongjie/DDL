@@ -1,9 +1,23 @@
 //app.js
+
 App({
   onLaunch: function() {
+
+    var information=wx.getStorageSync('information');
+    console.log(information)
+    if(information){
+      this.globalData.userid=information;
+      this.getdata();
+    }
+
+
+
+
+
     var data=wx.getStorageSync('data');
     if(data){
       this.globalData.data = data;
+
 
     }
     
@@ -13,6 +27,21 @@ App({
     this.order();
     
     
+    
+  },
+  getdata:function(){
+    var that=this;
+    wx.request({
+      url: 'http://1397608894-qq.vicp.io:42685/ddl/getthings',
+      data: {
+        'userid': this.globalData.userid,
+      },
+      success: (res) => {
+        console.log(res.data)
+       
+      }
+    })
+
   },
   onHide:function(){
     console.log("onhide")
@@ -170,6 +199,7 @@ App({
 
 
   globalData: {
+    userid:'',
     nowdate:'',
     data:[
       {
