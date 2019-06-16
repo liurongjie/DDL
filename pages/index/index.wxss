@@ -1,5 +1,12 @@
 /* 内容样式 */
-
+.container {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgb(241, 241, 241);
+} 
 .classify-item {
   font-size: 14px;
   color: #999;
@@ -56,12 +63,12 @@
 
 .plus {
   position: fixed;
-  width: 100rpx;
-  height: 100rpx;
+  width: 150rpx;
+  height: 150rpx;
   border-radius: 60rpx;
   bottom: 100rpx;
-  right: 50rpx;
-  background: white;
+  right: 90rpx;
+  
 }
 .hline{
   position: absolute;

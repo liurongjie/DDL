@@ -23,19 +23,20 @@
 
 
         </view>
-        <button class='share'  hover-class="sharein" data-index='{{item}}' bindtap='sharedata'>
+        <!-- <button class='share'  hover-class="sharein" data-index='{{item}}' bindtap='sharedata'>
           <image src='/static/share.svg' class='shareimg'></image>
-        </button>
+        </button> -->
 
       </view>
     </block>
   </block>
   <view class='null'></view>
-  <view class='plus' bindtap='goto'>
+  <!-- <view class='plus' bindtap='goto'>
     <view class='hline'></view>
     <view class='vline'></view>
 
-  </view>
+  </view> -->
+  <image src="/static/plus.svg" class="plus" bindtap='goto' ></image>
 </view>
 
 <sq></sq>

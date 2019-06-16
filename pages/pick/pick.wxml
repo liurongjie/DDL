@@ -1,4 +1,6 @@
+<image  src="/static/pic/qq.jpg" class="all"></image>
 <view class='container'>
+ 
   <view class='title'>
     <input placeholder="请输入DDL" placeholder-class="input" maxlength="50" value='{{title}}' bindinput='bind1' ></input>
 
@@ -11,6 +13,7 @@
     </picker>
 
     <picker mode="time" value="{{times}}" start="00:00" end="23:59" bindchange="bindTimeChange" class='time'>
+      <!-- 全天 -->
       {{times}}
       <image src='/static/time.svg' class='timeimg'></image>
     </picker>
@@ -36,13 +39,18 @@
 
   </view>
   <view class='middle' hidden='{{hidemiddle}}'>
-    <textarea placeholder='请输入详细内容' placeholder-class='wordstyle' bindinput='bind2' ></textarea>
+    <textarea placeholder='请输入详细内容' placeholder-class='wordstyle' value='{{context}}' bindinput='bind2' ></textarea>
   </view>
 
   <view class='bottom'>
 
-    <view class='button' bindtap='createDDL'>{{way==0?'更改DDL':'创建DDL'}}</view>
+    <view class='button' bindtap='createDDL' wx:if="{{change||way!=0}}">{{way==0?'更改DDL':'创建DDL'}}</view>
+     <button class='share' wx:if="{{!change&&way==0}}" open-type="share" hover-class="sharein" data-index='{{item}}' bindtap='sharedata'>
+      <view>点击分享</view>
+    </button>
   </view>
+
+ 
 
 
 

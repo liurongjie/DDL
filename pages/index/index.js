@@ -89,33 +89,9 @@ Page({
       content: '删除后不可恢复哦',
       success: function (res) {
         if (res.confirm) {
+          that.deletething(id);
           
-          for (var i = 0; i < app.globalData.iddata.length; i++) {
-            if (id == app.globalData.iddata[i].id) {
-              deletething = app.globalData.iddata[i];
-              break;
-            }
-            // else {
-            //   newthings.push(app.globalData.iddata[i]);
-            // }
-          }
-        
-        
-          for (var i = 0; i < app.globalData.data.length; i++) {
-            
-            if (deletething.title == app.globalData.data[i].title) {
-
-            }
-            else {
-              newthings.push(app.globalData.data[i]);
-            }
-          }
-          app.globalData.data = newthings;
-          app.getdataid();
-          app.order();
-          that.setData({
-            things: app.globalData.newthings,
-          })
+          
 
         } else { //这里是点击了取消以后
       
@@ -123,6 +99,28 @@ Page({
       }
     })
    
+  },
+  deletething:function(id){
+    var that = this;
+    wx.request({
+      url: 'https://xiaoyibang.top:8003/ddl/deleteddl',
+      data: {
+        'userid': app.globalData.userid,
+        'thingid': id,
+      },
+      success: (res) => {
+        app.getdata();
+        setTimeout(function(){
+          that.setData({
+            things: app.globalData.newthings,
+          })
+
+        },500);
+       
+       
+      }
+    })
+
   },
   goto: function () {
     
@@ -138,6 +136,8 @@ Page({
     common.data.kind = data.kind;
     common.data.importance = data.importance;
     common.data.context = data.context;
+    console.log("很爱很爱你")
+    console.log(data)
     wx.navigateTo({
       url: '/pages/pick/pick?title=' + data.title +
         '&' + 'dates=' + data.dates +

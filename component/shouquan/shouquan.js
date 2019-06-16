@@ -40,7 +40,7 @@ Component({
           success:res=>{
             console.log("微信小程序登陆")
             wx.request({
-              url: 'http://1397608894-qq.vicp.io:42685//ddl/login',
+              url: 'https://xiaoyibang.top:8003/ddl/login',
               data:{
                 'nickname':app.globalData.nickname,
                 'code':res.code,

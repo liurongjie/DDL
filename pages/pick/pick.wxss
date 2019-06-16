@@ -2,7 +2,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgb(241, 241, 241);
+  /* background-color: rgb(241, 241, 241); */
 }
 
 .title {
@@ -12,7 +12,7 @@
   margin-top: 30rpx;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  /* background-color: white; */
   border-bottom: 2px solid rgb(241, 241, 241);
 }
 
@@ -35,7 +35,7 @@ input {
   height: 100rpx;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  /* background-color: white; */
   line-height: 100rpx;
   font-size: 30rpx;
   font-weight: 500;
@@ -68,7 +68,6 @@ input {
   margin-left: 20rpx;
 }
 
-
 .choose {
   position: relative;
   width: 100%;
@@ -76,7 +75,7 @@ input {
   line-height: 100rpx;
   font-size: 30rpx;
   font-weight: 500;
-  background: white;
+  /* background: white; */
   padding-left: 5%;
   border-bottom: 2px solid rgb(241, 241, 241);
 }
@@ -94,7 +93,7 @@ checkbox .wx-checkbox-input {
 /* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
 
 checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-  background: #1afa29;
+  background: #f7d26b;
 }
 
 /* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
@@ -119,40 +118,46 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   line-height: 100rpx;
   font-size: 30rpx;
   font-weight: 500;
-  background: white;
+  /* background: white; */
   padding-left: 5%;
 }
-.starimg{
+
+.starimg {
   position: relative;
   width: 40rpx;
   height: 40rpx;
   top: 7rpx;
 }
 
-
 /* switch */
-.switch{
+
+.switch {
   position: relative;
   margin-left: 400rpx;
 }
-.wx-switch-input{
-    width: 82rpx!important;
-    height: 50rpx!important;
+
+.wx-switch-input {
+  width: 82rpx !important;
+  height: 50rpx !important;
+  background: #f7d26b !important;
+   border: #f7d26b !important; /* 2018-07-18 重置开关边框颜色 */
 }
+
 /*关闭状态*/
-.wx-switch-input::before{
-    width: 80rpx!important;
-    height: 46rpx!important;
+
+.wx-switch-input::before {
+  width: 80rpx !important;
+  height: 46rpx !important;
 }
+
 /*开启状态*/
-.wx-switch-input::after{
-    width: 48rpx!important;
-    height: 46rpx!important;
+
+.wx-switch-input::after {
+  width: 48rpx !important;
+  height: 46rpx !important;
 }
 
-
-
-.choosehide{
+.choosehide {
   position: relative;
   width: 100%;
   height: 80rpx;
@@ -162,32 +167,28 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   font-weight: 500;
   color: rgba(60, 60, 60, 0.5);
 }
-.downimg{
+
+.downimg {
   position: relative;
   width: 45rpx;
   height: 40rpx;
-  top:10rpx;
-  
+  top: 10rpx;
 }
 
-
-
-
-
-
-.bottom{
+.bottom {
   position: absolute;
   width: 100%;
   height: 120rpx;
-  background: white;
-  bottom: 0rpx;
+  /* background: white; */
+  bottom: 30rpx;
 }
 
-.button {
+.share {
+  position: relative;
   width: 300rpx;
   height: 80rpx;
   border-radius: 50rpx;
-  background-color: #1afa29;
+  background-color: #f7d26b;
   margin-top: 20rpx;
   margin-left: 225rpx;
   text-align: center;
@@ -195,25 +196,53 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   color: white;
   font-size: 35rpx;
   font-weight: 500;
-
 }
-.middle{
+
+.sharein {
+  background-color: beige;
+}
+
+button::after {
+  border: 0;
+}
+
+.button {
+  width: 300rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  background-color: #f7d26b;
+  margin-top: 20rpx;
+  margin-left: 225rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: white;
+  font-size: 35rpx;
+  font-weight: 500;
+}
+
+.middle {
   position: relative;
-  background: white;
+  /* background: white; */
   width: 100%;
   height: 400rpx;
 }
+
 textarea {
   position: relative;
   width: 560rpx;
   margin-left: 30rpx;
   height: 400rpx;
-  padding-top:25rpx;
-
+  padding-top: 25rpx;
 }
 
 .wordstyle {
   font-size: 30rpx;
   font-weight: 400;
   color: black;
+}
+
+.all {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
